@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="Stickler">
+<head>
+    <meta charset="UTF-8">
+    <title>Stickler (Support Ticket App)</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-theme.css">
+    <script src="lib/angular.js"></script>
+    <script>
+        angular.module("Stickler", ["customFilters"]);
+    </script>
+    <script src="controllers/stickler.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/ticketListControllers.js"></script>
+</head>
+<body ng-controller="sticklerCtrl">
+    <div class="navbar navbar-inverse">
+        <a href="#" class="navbar-brand">STICKLER</a>
+    </div>
+    <div class="panel panel-default row" ng-controller="ticketListCtrl">
+        <div class="col-sm-3">
+            <a ng-click="selectType()" href="#" class="btn btn-block btn-default btn-large">Home</a>
+            <a ng-click="selectType(supportType)" ng-repeat="supportType in data.tickets | orderBy:'supportType' | unique:'supportType'" href="#" class="btn btn-block btn-default btn-large">{{supportType}}</a>
+        </div>
+        <div class="col-sm-8">
+            <div class="well" ng-repeat="ticket in data.tickets | filter:typeFilterFn">
+                <h3>
+                    <strong>{{ticket.title}}</strong>
+                    <span class="pull-right label label-primary">{{ticket.priorityLevel}}</span>
+                </h3>
+                <span class="lead">{{ticket.description}}</span>
+                <span class="pull-right">{{ticket.supportType}}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

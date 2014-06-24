@@ -1,0 +1,1 @@
+angular.module("customFilters",[]).filter("unique",function(){return function(r,n){if(angular.isArray(r)&&angular.isString(n)){for(var u=[],a={},i=0;i<r.length;i++){var e=r[i][n];angular.isUndefined(a[e])&&(a[e]=!0,u.push(e))}return u}return r}});

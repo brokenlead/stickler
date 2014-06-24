@@ -1,0 +1,1 @@
+angular.module("Stickler").controller("ticketListCtrl",function(t,l){var n=null;t.selectType=function(t){n=t},t.typeFilterFn=function(t){return null===n||t.supportType===n}});
