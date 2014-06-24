@@ -1,1 +1,1 @@
-angular.module("Stickler").controller("ticketListCtrl",function(t,l){var n=null;t.selectType=function(t){n=t},t.typeFilterFn=function(t){return null===n||t.supportType===n}});
+angular.module("Stickler").constant("ticketTypeActiveClass","btn-primary").controller("ticketListCtrl",function(t,n,e){var l=null;t.selectType=function(t){l=t},t.typeFilterFn=function(t){return null===l||t.supportType===l},t.getTypeClass=function(t){return l===t?e:""}});

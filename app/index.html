@@ -20,7 +20,7 @@
     <div class="panel panel-default row" ng-controller="ticketListCtrl">
         <div class="col-sm-3">
             <a ng-click="selectType()" href="#" class="btn btn-block btn-default btn-large">Home</a>
-            <a ng-click="selectType(supportType)" ng-repeat="supportType in data.tickets | orderBy:'supportType' | unique:'supportType'" href="#" class="btn btn-block btn-default btn-large">{{supportType}}</a>
+            <a ng-click="selectType(supportType)" ng-repeat="supportType in data.tickets | orderBy:'supportType' | unique:'supportType'" href="#" class="btn btn-block btn-default btn-large" ng-class="getTypeClass(supportType)">{{supportType}}</a>
         </div>
         <div class="col-sm-8">
             <div class="well" ng-repeat="ticket in data.tickets | filter:typeFilterFn">

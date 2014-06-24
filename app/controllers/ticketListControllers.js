@@ -1,4 +1,6 @@
-angular.module("Stickler").controller("ticketListCtrl", function($scope, $filter) {
+angular.module("Stickler")
+.constant("ticketTypeActiveClass", "btn-primary")
+.controller("ticketListCtrl", function($scope, $filter, ticketTypeActiveClass) {
     var selectedType = null;
 
     $scope.selectType = function(newType) {
@@ -8,4 +10,8 @@ angular.module("Stickler").controller("ticketListCtrl", function($scope, $filter
     $scope.typeFilterFn = function(ticket) {
         return selectedType === null || ticket.supportType === selectedType;
     };
+
+    $scope.getTypeClass = function(type) {
+        return selectedType === type ? ticketTypeActiveClass : "";
+    }
 });
